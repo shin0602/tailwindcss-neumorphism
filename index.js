@@ -39,8 +39,10 @@ const generateShades = (color) => {
         ? Color(color).lighten(0.2).hex()
         : Color(color).lighten(0.25).hex(),
       shadowGradient: Color(color).isDark()
-        ? Color(color).darken(0.2).hex()
-        : Color(color).darken(0.15).hex(),
+        // ? Color(color).darken(0.2).hex()
+        // : Color(color).darken(0.15).hex(),
+        ? Color(color).darken(0.1).hex()
+        : Color(color).darken(0.05).hex(),
       highlightGradient: Color(color).isLight()
         ? Color(color).lighten(0.1).hex()
         : Color(color).lighten(0.05).hex(),
