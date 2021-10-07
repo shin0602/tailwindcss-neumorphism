@@ -66,23 +66,14 @@ module.exports = plugin(
         }
 
         _.forEach(theme('neumorphismSize'), (size, sizeKey) => {
-          const lightKey = sizeKey.toLowerCase() === 'default'
+          nmFlatPairs.push([
+            sizeKey.toLowerCase() === 'default'
               ? `.${e(`nm-flat-${colorKey}`)}`
-              : `.${e(`nm-flat-${colorKey}-${sizeKey}`)}`
-          const darkKey = sizeKey.toLowerCase() === 'default'
-              ? `.${e(`dark:nm-flat-${colorKey}`)}`
-              : `.${e(`dark:nm-flat-${colorKey}-${sizeKey}`)}`
-          const style = {
+              : `.${e(`nm-flat-${colorKey}-${sizeKey}`)}`,
+            {
               background: shades.baseColor,
               boxShadow: `${size} ${size} calc(${size} * 2) ${shades.shadowColor}, calc(${size} * -1) calc(${size} * -1) calc(${size} * 2) ${shades.highlightColor}`,
-            }
-          nmFlatPairs.push([
-            lightKey,
-            style,
-          ])
-          nmFlatPairs.push([
-            darkKey,
-            style,
+            },
           ])
         })
       }
@@ -122,7 +113,7 @@ module.exports = plugin(
 
     addUtilities(
       _.fromPairs(nmConcavePairs),
-      variants('neumorphismConcave', ['responsive', 'hover', 'focus'])
+      variants('neumorphismConcave', ['responsive', 'hover', 'focus', 'dark'])
     )
 
     const nmConvexPairs = []
@@ -154,7 +145,7 @@ module.exports = plugin(
 
     addUtilities(
       _.fromPairs(nmConvexPairs),
-      variants('neumorphismConvex', ['responsive', 'hover', 'focus'])
+      variants('neumorphismConvex', ['responsive', 'hover', 'focus', 'dark'])
     )
 
     const nmInsetPairs = []
@@ -186,7 +177,7 @@ module.exports = plugin(
 
     addUtilities(
       _.fromPairs(nmInsetPairs),
-      variants('neumorphismInset', ['responsive', 'hover', 'focus'])
+      variants('neumorphismInset', ['responsive', 'hover', 'focus', 'dark'])
     )
   },
   {
