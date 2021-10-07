@@ -66,14 +66,23 @@ module.exports = plugin(
         }
 
         _.forEach(theme('neumorphismSize'), (size, sizeKey) => {
-          nmFlatPairs.push([
-            sizeKey.toLowerCase() === 'default'
+          const lightKey = sizeKey.toLowerCase() === 'default'
               ? `.${e(`nm-flat-${colorKey}`)}`
-              : `.${e(`nm-flat-${colorKey}-${sizeKey}`)}`,
-            {
+              : `.${e(`nm-flat-${colorKey}-${sizeKey}`)}`
+          const darkKey = sizeKey.toLowerCase() === 'default'
+              ? `.${e(`dark:nm-flat-${colorKey}`)}`
+              : `.${e(`dark:nm-flat-${colorKey}-${sizeKey}`)}`
+          const style = {
               background: shades.baseColor,
               boxShadow: `${size} ${size} calc(${size} * 2) ${shades.shadowColor}, calc(${size} * -1) calc(${size} * -1) calc(${size} * 2) ${shades.highlightColor}`,
-            },
+            }
+          nmFlatPairs.push([
+            lightKey,
+            style,
+          ])
+          nmFlatPairs.push([
+            darkKey,
+            style,
           ])
         })
       }
