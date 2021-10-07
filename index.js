@@ -90,7 +90,7 @@ module.exports = plugin(
 
     addUtilities(
       _.fromPairs(nmFlatPairs),
-      variants('neumorphismFlat', ['responsive', 'hover', 'focus'])
+      variants('neumorphismFlat', ['responsive', 'hover', 'focus', 'dark'])
     )
 
     const nmConcavePairs = []
